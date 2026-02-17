@@ -51,7 +51,7 @@ for option in sort_options:
     assert cart_price == product_price
     assert cart_quantity == "1"
 
-    print("Verification Passed ✅")
+    print("Verification Passed")
 
     driver.find_element(By.XPATH, "//button[text()='Remove']").click()
     driver.find_element(By.ID, "continue-shopping").click()
