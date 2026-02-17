@@ -4,14 +4,12 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.edge.service import Service
 import time
 
-# Setup Edge
 service = Service("msedgedriver.exe")
 driver = webdriver.Edge(service=service)
 
 driver.maximize_window()
 driver.get("https://www.saucedemo.com/")
 
-# Login
 driver.find_element(By.ID, "user-name").send_keys("standard_user")
 driver.find_element(By.ID, "password").send_keys("secret_sauce")
 driver.find_element(By.ID, "login-button").click()
@@ -20,7 +18,6 @@ time.sleep(2)
 
 print("\n===== TASK 1 START =====\n")
 
-# Task 1 – Sorting & Add to Cart
 sort_options = ["lohi", "hilo", "az"]
 
 for option in sort_options:
@@ -41,10 +38,8 @@ for option in sort_options:
     print("Selected Product:", product_name)
     print("Price:", product_price)
 
-    # Add to cart
     first_product.find_element(By.TAG_NAME, "button").click()
 
-    # Go to cart
     driver.find_element(By.CLASS_NAME, "shopping_cart_link").click()
     time.sleep(2)
 
@@ -58,7 +53,6 @@ for option in sort_options:
 
     print("Verification Passed ✅")
 
-    # Remove item dynamically
     driver.find_element(By.XPATH, "//button[text()='Remove']").click()
     driver.find_element(By.ID, "continue-shopping").click()
 
@@ -66,7 +60,6 @@ time.sleep(2)
 
 print("\n===== TASK 2 START =====\n")
 
-# Task 2 – Extract first 3 after Z to A sorting
 dropdown = Select(driver.find_element(By.CLASS_NAME, "product_sort_container"))
 dropdown.select_by_value("za")
 
