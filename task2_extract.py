@@ -10,14 +10,12 @@ driver = webdriver.Edge(service=service)
 driver.maximize_window()
 driver.get("https://www.saucedemo.com/")
 
-# Login
 driver.find_element(By.ID, "user-name").send_keys("standard_user")
 driver.find_element(By.ID, "password").send_keys("secret_sauce")
 driver.find_element(By.ID, "login-button").click()
 
 time.sleep(2)
 
-# Sort by Name Z to A
 dropdown = Select(driver.find_element(By.CLASS_NAME, "product_sort_container"))
 dropdown.select_by_value("za")
 
